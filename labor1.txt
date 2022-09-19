@@ -1,0 +1,66 @@
+1. feladat
+fun main() {
+    val a = 2
+    val b = 3
+    val sum = a + b
+    print("$a + $b = $sum")
+}
+
+2. feladat
+fun main() {
+    val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", )
+	for(day in daysOfWeek)
+    	print("$day ")
+        println()
+    val firstletter_T = daysOfWeek.filter { it.startsWith('T') }
+    print(firstletter_T)
+    println()
+    val contains_e = daysOfWeek.filter { it.contains('e')}
+    print(contains_e)
+    println()
+    val length_6 = daysOfWeek.filter { it.length == 6}
+    print(length_6)
+}
+
+3. feladat
+fun main() {
+    var start = 2
+    val limit = 50
+    while (start < limit) {
+        if (checkPrimeNumber(start))
+            print(start.toString() + " ")
+        start++
+    }
+}
+
+fun checkPrimeNumber(num: Int): Boolean {
+    var test = true
+    for (i in 2..num / 2) {
+        if (num % i == 0) {
+            test = false
+            break
+        }
+    }
+    return test
+}
+4. feladat - ez meg nem megy, de lejart az ora szoval felkuldom
+import java.util.Base64
+fun main() {
+    val message = "Titkos uzenet szall a szellel"
+    encode(message)
+    println(message)
+    decode(message)
+    println(message)
+}
+
+fun encode(text: String){
+    val encoder: Base64.Encoder = Base64.getEncoder()
+    val encoded: String = encoder.encodeToString(text.toByteArray())
+    return encoded
+}
+fun decode(text: String){
+    val decoder: Base64.Decoder = Base64.getDecoder()
+    val decoded = String(decoder.decode(text))
+    return decoded
+}
+
