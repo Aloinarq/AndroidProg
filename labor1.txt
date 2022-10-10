@@ -8,7 +8,7 @@ fun main() {
 
 2. feladat
 fun main() {
-    val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", )
+    val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 	for(day in daysOfWeek)
     	print("$day ")
         println()
@@ -43,24 +43,57 @@ fun checkPrimeNumber(num: Int): Boolean {
     }
     return test
 }
+
 4. feladat - ez meg nem megy, de lejart az ora szoval felkuldom
 import java.util.Base64
+
+fun encode(text: String): String {
+    val encoder: Base64.Encoder = Base64.getEncoder()
+    return encoder.encodeToString(text.toByteArray())
+}
+fun decode(text: String): String {
+    val decoder: Base64.Decoder = Base64.getDecoder()
+    return String(decoder.decode(text))
+}
+
 fun main() {
     val message = "Titkos uzenet szall a szellel"
-    encode(message)
     println(message)
-    decode(message)
-    println(message)
+    val encoded = encode(message)
+    println(encoded)
+    val decoded = decode(encoded)
+    println(decoded)
 }
 
-fun encode(text: String){
-    val encoder: Base64.Encoder = Base64.getEncoder()
-    val encoded: String = encoder.encodeToString(text.toByteArray())
-    return encoded
+5. feladat
+fun main() {
+    val numbers = listOf(1,2,3,4,5,6,7,8,9)
+    println(numbers)
+    val even: List<Int> = list_even(numbers)
+    println(even)
 }
-fun decode(text: String){
-    val decoder: Base64.Decoder = Base64.getDecoder()
-    val decoded = String(decoder.decode(text))
-    return decoded
+fun list_even(list: List<Int>) : List<Int> = list.filter { x-> x % 2 == 0 }
+
+6. feladat
+fun main() {
+    val numlist = listOf(1,2,3,4,5,6,7,8,9)
+    println(numlist.map { it * 2 })
+    val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    println(daysOfWeek.map { it.uppercase() })
+    println(daysOfWeek.map { it.first().lowercase() })
+    println(daysOfWeek.map { it.length })
+    println((daysOfWeek.map { it.length }).average())
 }
 
+7.feladat
+fun main() {
+    val daysOfWeek = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    val mutable_daysOfWeek = daysOfWeek as MutableList<String>
+    val without_N = mutable_daysOfWeek.filter { !it.contains('n') }
+    println(without_N)
+    val indexed: Iterable<IndexedValue<String>> = without_N.withIndex()
+    println(indexed)
+    println(without_N.sorted())
+}
+
+8.feladat
