@@ -53,4 +53,26 @@ fun main(){
     println(stringList.joinList())
 
     println(stringList.longestString())
+
+    //3as
+    val dates: MutableList<Date> = mutableListOf()
+    while (dates.size < 10) {
+        val date = Date((1970..2030).random(), (1..12).random(), (1..31).random());
+        date.isValid() && dates.add(date)
+    }
+
+    println("Dates: ")
+    dates.forEach { date -> println(date) }
+    println("Sorted: ")
+    dates.sort()
+    dates.forEach { date -> println(date) }
+
+    println("Reversed: ")
+    dates.reverse()
+    dates.forEach { date -> println(date) }
+
+    println("Custom (order by day): ")
+    dates.sortWith(DateComparator())
+    dates.forEach { date -> println(date) }
+
 }
